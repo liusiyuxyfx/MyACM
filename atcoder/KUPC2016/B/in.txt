@@ -1,0 +1,7 @@
+5 2
+CE
+AB
+AC
+AD
+CD
+
