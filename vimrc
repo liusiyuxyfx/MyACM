@@ -1,3 +1,4 @@
+
 set nocp "Bram 爷爷强烈推荐使用 VIM 的不兼容模式                                                                                                                                              
 set nu "显示行号
 syn on "自动语法高亮
@@ -30,12 +31,14 @@ func SetTitle()
     call append(line(".")+7, "#include<bits/stdc++.h>")
     call append(line(".")+8, "#define MEM(a,x) memset(a,x,sizeof(a));") 
     call append(line(".")+9, "#define MEMINF(a) memset(a,0x3f,sizeof(a));") 
-    call append(line(".")+10, "using namespace std;") 
-    call append(line(".")+11, "typedef long long LL;") 
-    call append(line(".")+12, "const int MAXN=205;")
-    call append(line(".")+13, "const int INF=0x3f3f3f3f;")  
-    call append(line(".")+14, "const int MOD=1000000007;")  
-    call append(line(".")+15, "")    
+    call append(line(".")+10, "#define pb push_back")
+    call append(line(".")+11, "#define Abs(x) ((x) >= 0 ? (x) : (-(x)))") 
+    call append(line(".")+12, "using namespace std;") 
+    call append(line(".")+13, "typedef long long LL;") 
+    call append(line(".")+14, "const int MAXN=2e5 + 10;")
+    call append(line(".")+15, "const int INF=0x3f3f3f3f;")  
+    call append(line(".")+16, "const int MOD=1000000007;")
+    call append(line(".")+17, "")    
   endif
 endfunc
 
