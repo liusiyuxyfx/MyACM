@@ -1,0 +1,4 @@
+3 3
+C M N 
+Y G K 
+E L L
