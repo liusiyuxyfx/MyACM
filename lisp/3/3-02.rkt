@@ -1,0 +1,16 @@
+#lang sicp
+(define (square x) (* x x))
+(define (make-monitored f)
+  (let ((cnt 0)) 
+     (define (mf m)
+        (cond ((eq? m 'how-many-calls?) cnt)
+              ((eq? m 'reset-count) (set! cnt 0))
+              (else (begin (set! cnt (+ 1 cnt))
+                           (f m)))))
+      mf))
+    
+ (define s (make-monitored square))
+(s 100)
+(s 'how-many-calls?)
+(s 'reset-count)
+(s 'how-many-calls?)
