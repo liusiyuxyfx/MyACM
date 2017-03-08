@@ -1,0 +1,13 @@
+#lang sicp
+(define (cons a b)
+  (* (expt 2 a)
+     (expt 3 b)))
+(define (divided? a b) (= (remainder a b) 0))
+(define (car z)
+  (if (divided? z 3)
+      (car (/ z 3))
+      (/ (log z) (log 2))))
+(define (cdr z)
+  (if (even? z)
+      (cdr (/ z 2))
+      (/ (log z) (log 3))))
