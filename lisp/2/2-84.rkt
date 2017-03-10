@@ -11,7 +11,7 @@
                        (apply-generic op (transform a1 a2) a2)))
                       (else
                         (error "No method for these types")))))))))
-;这里假设有一个方法（weight-of-type type）可以返回一个类型的权重，并且事先给所有类型由低到高的
+;这里假设有一个过程（weight-of-type type）可以返回一个类型的权重，并且事先给所有类型由低到高的
 ;按层次增顺序的赋予权重（cons type weight)
 (define (transform a1 a2)
   (let ((type1 (type-tag a1))
