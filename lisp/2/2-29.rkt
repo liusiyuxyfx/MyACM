@@ -1,0 +1,41 @@
+#lang planet neil/sicp 
+
+(define (make-mobile left right)
+  (list left right))
+(define (make-branch length structure)
+  (list length structure))
+;a
+(define (left-branch mobile) (car mobile))
+(define (right-branch mobile) (car (cdr mobile)))
+(define (branch-length branch) (car branch))
+(define (branch-structure branch) (car (cdr branch)))
+
+;b
+(define (branch-weight branch)
+  (let ((node (branch-structure branch)))
+    (if (pair? node)
+        (total-weight node)
+        node)))
+(define (total-weight mobile)
+  (let ((l-b (left-branch mobile))
+        (r-b (right-branch mobile)))
+    (+ (branch-weight l-b)
+       (branch-weight r-b))))
+;c
+(define (moment branch)
+  (let ((node (branch-structure branch))
+        (line (branch-length branch)))
+    (* line (branch-weight node))))
+(define (downward-check branch)
+  (let ((node (branch-structure branch)))
+    (if (pair? node)
+        (balance? node)
+        true)))
+(define (balance? mobile)
+  (let ((l-b (left-branch mobile))
+        (r-b (right-branch mobile)))
+    (and (= (moment l-b) (moment r-b))
+         (downward-check (l-b))
+         (downward-check (r-b)))))
+;d
+;只要将right-branch和 branch-weight分别改为 (cdr mobile) (cdr branch)
