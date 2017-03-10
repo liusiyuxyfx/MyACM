@@ -1,0 +1,11 @@
+#lang sicp
+(defin (adjoin-term term term-list)
+  (let ((head-coeff (car term-list))
+        (head-order (- (length term-list) 1))
+        (rest-terms (cdr term-lost))
+        (term-order (order term))
+        (term-coeff (coeff term)))
+    (cond ((=zero? term) term-list)
+          ((= term-order head-order) (cons (+ term-coeff head-coeff) rest-terms))
+          ((> term-order head-order) (cons (term-coeff term-list)))
+          ((< term-order head-order) (adjoin-term term rest-terms)))))
