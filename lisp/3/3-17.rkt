@@ -1,0 +1,15 @@
+#lang planet neil/sicp
+(define (count-pairs x)
+  (let ((temp '()))
+    (define (counted? x)
+      (if (not (memq x temp))
+          (begin (set! temp (cons x temp))
+                 false)
+          true))
+    (define (iter x)
+      (if (not (pair? x))
+          0
+          (if (counted? x)
+              (+ (iter (car x)) (iter (cdr x)) 0)
+              (+ (iter (car x)) (iter (cdr x)) 1))))
+    (iter x)))

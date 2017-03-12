@@ -1,0 +1,26 @@
+#lang planet neil/sicp
+(define (last-pair x)
+  (if (null? (cdr x))
+      x
+      (last-pair (cdr x))))
+(define (make-circle x)
+  (set-cdr! (last-pair x) x)
+  x)
+(define (will-never-end? x)
+  (let ((tmp '()))
+    (define (memq-list? shor long)
+      (cond ((null? long) false)
+            ((eq? shor (car long)) true)
+            (else (memq-list? shor (cdr long)))))
+    (define (iter x)
+      (cond ((not (pair? x)) false)
+            ((memq-list? x tmp) true)
+            (else (begin (set! tmp (cons x tmp))
+                         (or (iter (car x))
+                             (iter (cdr x)))))))
+    (iter x)))
+
+(define x (list 'a 'b))
+
+(define w (make-circle x))
+(will-never-end? w)
