@@ -1,4 +1,4 @@
-#lang racket
+#lang planet neil/sicp
 (define (c+ x y)
   (let ((z (make-connector)))
     (adder x y z)
